@@ -1,13 +1,10 @@
 package repository;
 
 import model.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EmployeeRepository {
-
-    Employee save(Employee employee);
-
-    boolean delete(int id);
-
-    Employee get(int id);
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 }
 

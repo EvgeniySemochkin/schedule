@@ -1,11 +1,13 @@
 package service;
 
 import model.Employee;
-import util.exceptions.NotFoundException;
+
+import java.util.List;
 
 public interface EmployeeService {
 
     Employee save(Employee employee);
-    void delete(int id) throws NotFoundException;
-    Employee get(int id) throws NotFoundException;
+    void delete(int id);
+    Employee get(int id);
+    List<Employee> getAll();
 }
