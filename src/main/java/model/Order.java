@@ -41,6 +41,16 @@ public class Order extends BaseEntity {
         this.department = department;
     }
 
+    public Order(Integer id, String name, FurnitureType furnitureType, LocalDateTime endTime, Department department) {
+        super(id);
+        this.name = name;
+        this.furnitureType = furnitureType;
+        this.endTime = endTime;
+        this.department = department;
+    }
+
+
+
     public String getName() {
         return name;
     }

@@ -15,6 +15,7 @@ public interface OrderService {
     List<Order> getAllByEmployee(int id);
     List<Order> getAllByDepartment(Department department);
     List<Order> getAllUnfinished();
+    public String getTimeLeft(int id);
 
 
 }

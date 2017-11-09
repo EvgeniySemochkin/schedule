@@ -4,10 +4,8 @@ import model.Employee;
 import model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import repository.EmployeeRepository;
 import repository.OrderRepository;
-import util.exceptions.NotFoundException;
 
 import java.util.List;
 

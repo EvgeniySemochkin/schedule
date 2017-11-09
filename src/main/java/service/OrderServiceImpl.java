@@ -6,14 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.OrderRepository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -75,22 +71,18 @@ public class OrderServiceImpl implements OrderService {
         return orderRepository.findAllByEndTimeAfter(LocalDateTime.now());
     }
 
-    public Map<String, Long> getTimeLeft(int id) {
-        Map<String, Long> map = new HashMap<>();
-
+    @Override
+    public String getTimeLeft(int id) {
         LocalDateTime endDateTime = orderRepository.findOne(id).getEndTime();
         LocalDateTime currentDateTime = LocalDateTime.now();
         long days = ChronoUnit.DAYS.between(currentDateTime, endDateTime);
-        map.put("days", days);
-
 
         LocalTime currentTime = currentDateTime.toLocalTime();
         LocalTime endTime = endDateTime.toLocalTime();
         long hours = ChronoUnit.HOURS.between(currentTime, endTime);
         if (hours < 0) hours = 24 + hours;
-        map.put("hours", hours);
 
-        return map;
+        return "Time left " + days + " days and " + hours + " hours";
     }
 
 }
